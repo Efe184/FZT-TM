@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll-Scrub Demo — Proaktif Hareket Sağlığı</title>
+<style>
+  :root{
+    --bg:#0B1325; --blue:#0052CC; --neon:#CCFF00;
+    --slate:#1E293B; --white:#FFFFFF; --muted:#8fa3c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{background:var(--bg);color:var(--white);font-family:"Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+
+  /* ---------- HERO: scroll-scrub sahnesi ---------- */
+  .scrub-track{height:320vh;position:relative}
+  .scrub-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+  canvas{display:block;width:100%;height:100%}
+
+  .hero-copy{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    justify-content:center;padding:0 8vw;pointer-events:none;
+  }
+  .hero-copy .kicker{
+    color:var(--neon);font-size:clamp(12px,1.4vw,15px);letter-spacing:.35em;
+    text-transform:uppercase;margin-bottom:1.2rem;font-weight:600;
+  }
+  .hero-copy h1{
+    font-size:clamp(2.2rem,6.5vw,5.2rem);line-height:1.05;font-weight:800;
+    max-width:14ch;
+  }
+  .hero-copy h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--neon)}
+  .hero-copy .sub{margin-top:1.4rem;color:var(--muted);max-width:44ch;font-size:clamp(.95rem,1.5vw,1.1rem)}
+
+  .frame-hud{
+    position:absolute;right:2rem;bottom:2rem;font-variant-numeric:tabular-nums;
+    font-size:12px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;
+    border:1px solid var(--slate);padding:.5rem .9rem;border-radius:999px;
+    background:rgba(11,19,37,.6);backdrop-filter:blur(6px);
+  }
+  .frame-hud b{color:var(--neon);font-weight:600}
+
+  .scroll-hint{
+    position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);
+    color:var(--muted);font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    animation:hint 2s ease-in-out infinite;
+  }
+  @keyframes hint{0%,100%{transform:translate(-50%,0);opacity:.7}50%{transform:translate(-50%,8px);opacity:1}}
+
+  /* ---------- PARADIGMA: scroll ile metin dönüşümü ---------- */
+  .paradigm-track{height:260vh;position:relative;background:linear-gradient(var(--bg),#0d1730 50%,var(--bg))}
+  .paradigm-sticky{
+    position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:0 6vw;
+  }
+  .paradigm-sticky .label{color:var(--muted);letter-spacing:.35em;text-transform:uppercase;font-size:12px;margin-bottom:2rem}
+  .swap{position:relative;height:clamp(4rem,12vw,9rem);width:100%}
+  .swap > span{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:clamp(2rem,6vw,4.8rem);font-weight:800;white-space:nowrap;
+  }
+  .old-word{color:var(--muted)}
+  .old-word::after{
+    content:"";position:absolute;left:10%;top:50%;height:4px;width:0%;
+    background:var(--neon);transform:translateY(-50%);border-radius:2px;
+    width:calc(var(--strike,0)*80%);transition:none;
+  }
+  .new-word{
+    color:var(--white);opacity:var(--reveal,0);
+    filter:blur(calc((1 - var(--reveal,0))*14px));
+    transform:scale(calc(.92 + var(--reveal,0)*.08));
+    text-shadow:0 0 40px rgba(0,82,204,calc(var(--reveal,0)*.9));
+  }
+  .new-word .accent{color:var(--neon)}
+
+  /* ---------- METODOLOJİ KARTLARI ---------- */
+  .method{padding:16vh 8vw;max-width:1200px;margin:0 auto}
+  .method h2{font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:.8rem}
+  .method p.lead{color:var(--muted);max-width:60ch;margin-bottom:3.5rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+  .card{
+    background:var(--slate);border:1px solid #26334d;border-radius:18px;
+    padding:2rem 1.6rem;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s;
+    cursor:default;
+  }
+  .card:hover{transform:translateY(-8px);border-color:var(--blue);box-shadow:0 24px 60px -20px rgba(0,82,204,.55)}
+  .card .num{color:var(--neon);font-size:12px;letter-spacing:.3em;font-weight:700}
+  .card h3{margin:.9rem 0 .6rem;font-size:1.25rem}
+  .card p{color:var(--muted);font-size:.95rem;line-height:1.55}
+
+  footer{
+    border-top:1px solid var(--slate);padding:3rem 8vw;color:var(--muted);
+    font-size:.85rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+  }
+  footer .badge{color:var(--white)}
+
+  /* Konsept geçiş linki */
+  .concept-switch{
+    position:fixed;top:1.4rem;right:1.4rem;z-index:50;
+    font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;color:var(--bg);background:var(--neon);
+    padding:.6rem 1.1rem;border-radius:999px;
+    box-shadow:0 8px 24px -8px rgba(204,255,0,.5);transition:transform .25s;
+  }
+  .concept-switch:hover{transform:translateY(-2px)}
+
+  /* Hareket azaltma tercihi: scrub yerine statik son kare */
+  @media (prefers-reduced-motion: reduce){
+    .scrub-track,.paradigm-track{height:100vh}
+    .scroll-hint,.frame-hud{display:none}
+    .new-word{--reveal:1}
+    .old-word{display:none}
+  }
+</style>
+</head>
+<body>
+
+<a class="concept-switch" href="demo-b.html">⇄ Konsept B</a>
+
+<!-- 1) HERO — scroll ilerledikçe "kare" değişir (video scrub'ın kodla üretilmiş hali) -->
+<section class="scrub-track" id="heroTrack">
+  <div class="scrub-sticky">
+    <canvas id="scene"></canvas>
+    <div class="hero-copy">
+      <div class="kicker">Fzt. Demo Kliniği</div>
+      <h1>Yaşam Boyu <em>Hareket</em> Danışmanınız</h1>
+      <p class="sub">Kaydırdıkça figür kamburdan dik duruşa geçer — prodüksiyonda bu karelerin yerini gerçek çekim bir video ya da WebP kare dizisi alır.</p>
+    </div>
+    <div class="frame-hud">kare <b id="frameNow">000</b> / <span id="frameTotal">090</span></div>
+    <div class="scroll-hint">Kaydır ↓</div>
+  </div>
+</section>
+
+<!-- 2) PARADİGMA — eski metin çizilir, yenisi parlar -->
+<section class="paradigm-track" id="paradigmTrack">
+  <div class="paradigm-sticky" id="paradigmBox">
+    <div class="label">Paradigma Kayması</div>
+    <div class="swap">
+      <span class="old-word" id="oldWord">Hasar Onarımı</span>
+      <span class="new-word" id="newWord">Proaktif&nbsp;<span class="accent">Hareket Sağlığı</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 3) METODOLOJİ — hover kartları -->
+<section class="method">
+  <h2>T.I.C. Metodolojisi</h2>
+  <p class="lead">Aşırı bilgi yükü yerine keşfederek öğrenme: her aşama tek bir kartta, detaylar hover ile.</p>
+  <div class="cards">
+    <div class="card"><div class="num">01 — TRAIN</div><h3>Eğit</h3><p>Klinik değerlendirme ve beden farkındalığı: ağrının kaynağını haritalandırır, doğru hareket paternini öğretiriz.</p></div>
+    <div class="card"><div class="num">02 — IMPROVE</div><h3>Geliştir</h3><p>Kademeli yüklenme ile mobilite, kuvvet ve dayanıklılık kapasitesini ölçülebilir şekilde artırırız.</p></div>
+    <div class="card"><div class="num">03 — CONSOLIDATE</div><h3>Sağlamlaştır</h3><p>Kazanımları günlük yaşama taşır, tekrar sakatlanma riskini proaktif takip programıyla düşürürüz.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="badge">Demo</span> — scroll-scrub tekniği, sıfır bağımlılık, tek dosya.</div>
+  <div>Bu içerik genel bilgilendirme amaçlıdır.</div>
+</footer>
+
+<script>
+(() => {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const canvas = document.getElementById('scene');
+  const ctx = canvas.getContext('2d');
+  const TOTAL_FRAMES = 90; // prodüksiyonda: WebP kare sayısı / video süresi
+  document.getElementById('frameTotal').textContent = String(TOTAL_FRAMES).padStart(3,'0');
+
+  let W = 0, H = 0, DPR = 1;
+  function resize(){
+    DPR = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  addEventListener('resize', resize); resize();
+
+  // --- Arka plan dot-matrix + omurga figürü: progress'e (0..1) göre çizilir ---
+  const ease = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
+
+  function drawFrame(p){
+    const t = ease(p);
+    ctx.clearRect(0,0,W,H);
+
+    // dot-matrix zemin: hafif dalga, scroll ile faz kayar
+    const gap = 46;
+    for(let y=gap/2; y<H; y+=gap){
+      for(let x=gap/2; x<W; x+=gap){
+        const wave = Math.sin(x*0.012 + y*0.01 + p*6) * 0.5 + 0.5;
+        const a = 0.05 + wave*0.10;
+        ctx.fillStyle = `rgba(0,82,204,${a})`;
+        ctx.beginPath();
+        ctx.arc(x, y + Math.sin(x*0.01 + p*8)*6, 1.6 + wave*1.2, 0, 7);
+        ctx.fill();
+      }
+    }
+
+    // omurga: kambur C-eğrisinden dik duruşa
+    const cx = W * (W > 760 ? 0.72 : 0.5);
+    const topY = H*0.18, botY = H*0.82;
+    const N = 26; // omur (dot) sayısı
+    const bend = (1 - t) * Math.min(W*0.13, 130); // t=0 kambur, t=1 dik
+
+    const pts = [];
+    for(let i=0;i<N;i++){
+      const u = i/(N-1);
+      const y = topY + (botY-topY)*u;
+      // kamburluk: üst gövdede öne eğilme (sinüs tepe noktası üstte)
+      const x = cx + Math.sin(u*Math.PI) * -bend + Math.sin(u*Math.PI*0.5) * -bend*0.4;
+      pts.push({x,y,u});
+    }
+
+    // bağ çizgisi (glow)
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = `rgba(0,82,204,${0.35+t*0.3})`;
+    ctx.shadowColor = 'rgba(0,82,204,0.8)';
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    pts.forEach((p_,i)=> i ? ctx.lineTo(p_.x,p_.y) : ctx.moveTo(p_.x,p_.y));
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // omur noktaları: dikleştikçe neon'a döner
+    pts.forEach((pt,i)=>{
+      const r = 4 + Math.sin(pt.u*Math.PI)*3;
+      const neon = t > 0.55 ? (t-0.55)/0.45 : 0;
+      const cr = Math.round(0   + neon*(204-0));
+      const cg = Math.round(82  + neon*(255-82));
+      const cb = Math.round(204 + neon*(0-204));
+      ctx.fillStyle = `rgb(${cr},${cg},${cb})`;
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 10 + neon*14;
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, r, 0, 7); ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+
+    // baş
+    const head = pts[0];
+    ctx.strokeStyle = `rgba(255,255,255,${0.5+t*0.5})`;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.arc(head.x, head.y - 34, 22, 0, 7); ctx.stroke();
+  }
+
+  // --- Scroll -> hedef progress; rAF içinde lerp ile yumuşatma (scrub smoothing) ---
+  const heroTrack = document.getElementById('heroTrack');
+  const paradigmTrack = document.getElementById('paradigmTrack');
+  const oldWord = document.getElementById('oldWord');
+  const newWord = document.getElementById('newWord');
+  const frameNow = document.getElementById('frameNow');
+  const clamp = v => Math.max(0, Math.min(1, v));
+
+  function trackProgress(el){
+    const r = el.getBoundingClientRect();
+    const total = r.height - innerHeight;
+    return total > 0 ? clamp(-r.top / total) : 1;
+  }
+
+  let current = 0, target = 0;
+  function loop(){
+    target = trackProgress(heroTrack);
+    current += (target - current) * 0.12;           // yumuşatma
+    if (Math.abs(target-current) < 0.0005) current = target;
+
+    const frame = Math.round(current * (TOTAL_FRAMES-1));
+    drawFrame(frame/(TOTAL_FRAMES-1));               // kare kilitli çizim = sequence mantığı
+    frameNow.textContent = String(frame+1).padStart(3,'0');
+
+    const pp = trackProgress(paradigmTrack);
+    oldWord.style.setProperty('--strike', clamp(pp/0.45));
+    oldWord.style.opacity = 1 - clamp((pp-0.35)/0.3);
+    newWord.style.setProperty('--reveal', clamp((pp-0.45)/0.4));
+
+    requestAnimationFrame(loop);
+  }
+
+  if (reduceMotion){ drawFrame(1); frameNow.textContent = String(TOTAL_FRAMES).padStart(3,'0'); }
+  else requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

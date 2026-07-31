@@ -37,12 +37,18 @@
   .nav-links a{color:var(--charcoal);text-decoration:none;font-size:.9rem;transition:color .2s}
   .nav-links a:hover{color:var(--sage)}
   .nav-cta{
-    background:var(--sage);color:#fff !important;padding:.6rem 1.2rem;border-radius:999px;
-    font-weight:600;font-size:.85rem !important;box-shadow:0 8px 20px -8px rgba(45,90,39,.5);
-    transition:transform .25s !important;
+    background:var(--sage);color:#fff !important;padding:.55rem 1.15rem;border-radius:999px;
+    font-weight:600;font-size:.82rem !important;letter-spacing:.02em;
+    box-shadow:0 6px 16px -8px rgba(45,90,39,.45);
+    transition:transform .25s,box-shadow .25s !important;
   }
-  .nav-cta:hover{transform:translateY(-2px)}
-  @media (max-width:820px){ .nav-links a:not(.nav-cta){display:none} }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px -8px rgba(45,90,39,.55)}
+  .nav-cta .short{display:none}
+  @media (max-width:820px){
+    .nav-links a:not(.nav-cta){display:none}
+    .nav-cta .full{display:none}
+    .nav-cta .short{display:inline}
+  }
 
   /* ---------- HERO: scroll-scrub ---------- */
   .scrub-track{height:300vh;position:relative}
@@ -77,7 +83,12 @@
     box-shadow:0 14px 34px -12px rgba(45,90,39,.55);transition:transform .25s,box-shadow .25s;
   }
   .hero-cta:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(45,90,39,.6)}
-  .hero-cta small{font-weight:400;opacity:.85}
+  .hero-cta .arr{display:inline-block;transition:transform .25s}
+  .hero-cta:hover .arr{transform:translateX(5px)}
+  .hero-cta-note{pointer-events:none;font-family:var(--font-body);margin-top:.9rem;font-size:.85rem;color:#9aa7c7}
+  @media (max-width:600px){
+    .hero-cta{align-self:stretch;justify-content:center;text-align:center;padding:1.1rem 1.2rem}
+  }
   /* koyu hero paleti */
   .hero-copy .kicker{color:#a8d5a0}
   .hero-copy h1{color:#f4f2ea}
@@ -297,13 +308,65 @@
   .contact h2 em{font-style:italic;color:var(--sage)}
   .contact .sub{font-family:var(--font-body);color:var(--muted);max-width:52ch;margin:0 auto 2.8rem;line-height:1.7}
   .contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-family:var(--font-body)}
-  .btn{
-    display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:600;
-    padding:1.05rem 1.8rem;border-radius:999px;font-size:1.02rem;transition:transform .25s,box-shadow .25s;
+  .cbtn{
+    display:flex;align-items:center;gap:1rem;text-decoration:none;text-align:left;
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:1rem 1.7rem 1rem 1.1rem;min-width:280px;
+    box-shadow:0 10px 30px -18px rgba(26,32,44,.25);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
   }
-  .btn:hover{transform:translateY(-3px)}
-  .btn-phone{background:var(--charcoal);color:#fff;box-shadow:0 14px 34px -12px rgba(26,32,44,.5)}
-  .btn-wa{background:#1fa855;color:#fff;box-shadow:0 14px 34px -12px rgba(31,168,85,.5)}
+  .cbtn:hover{transform:translateY(-3px);border-color:var(--sage);box-shadow:0 18px 40px -18px rgba(45,90,39,.35)}
+  .cbtn-ic{
+    width:46px;height:46px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(45,90,39,.09);color:var(--sage);
+  }
+  .cbtn-ic.wa{background:rgba(37,211,102,.13);color:#1a9c50}
+  .cbtn-ic svg{width:22px;height:22px}
+  .cbtn-tx{display:flex;flex-direction:column;gap:.1rem}
+  .cbtn-tx small{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cbtn-tx b{font-family:var(--font-head);font-size:1.15rem;font-weight:600;color:var(--charcoal);font-variant-numeric:tabular-nums}
+  @media (max-width:600px){ .cbtn{width:100%;min-width:0} }
+
+  /* iletişim formu */
+  .form-wrap{max-width:1000px;margin:5rem auto 0;display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;text-align:left}
+  @media (max-width:820px){ .form-wrap{grid-template-columns:1fr;gap:2rem} }
+  .form-side h3{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:500;line-height:1.3;margin-bottom:1rem}
+  .form-side h3 em{font-style:italic;color:var(--sage)}
+  .form-side p{font-family:var(--font-body);color:var(--muted);line-height:1.7;font-size:.95rem;margin-bottom:1.2rem}
+  .form-side .hours{font-family:var(--font-body);color:#4b5563;font-size:.9rem;line-height:2;list-style:none}
+  .form-side .hours b{color:var(--charcoal)}
+  .form-card{
+    background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(1.5rem,3vw,2.2rem);
+    display:flex;flex-direction:column;gap:1.1rem;font-family:var(--font-body);
+    box-shadow:0 16px 44px -24px rgba(26,32,44,.25);
+  }
+  .field{display:flex;flex-direction:column;gap:.4rem}
+  .field label{font-size:.85rem;font-weight:600;color:var(--charcoal)}
+  .field input,.field select,.field textarea{
+    font-family:var(--font-body);font-size:1rem;color:var(--charcoal);
+    background:var(--bg);border:1px solid var(--line);border-radius:12px;
+    padding:.85rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    border-color:var(--sage);box-shadow:0 0 0 3px rgba(45,90,39,.12);
+  }
+  .field textarea{min-height:96px;resize:vertical}
+  .consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:var(--muted);line-height:1.55}
+  .consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--sage);flex:none;cursor:pointer}
+  .consent a{color:var(--sage)}
+  .form-submit{
+    display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+    background:var(--sage);color:#fff;border:none;cursor:pointer;
+    font-family:var(--font-body);font-weight:600;font-size:1rem;
+    padding:1rem 1.5rem;border-radius:999px;
+    box-shadow:0 12px 28px -12px rgba(45,90,39,.5);
+    transition:transform .25s,box-shadow .25s,opacity .25s;
+  }
+  .form-submit:hover:not(:disabled){transform:translateY(-2px)}
+  .form-submit:disabled{opacity:.45;cursor:not-allowed}
+  .form-submit svg{width:18px;height:18px}
+  .form-hint{font-size:.75rem;color:var(--muted);text-align:center}
   .contact .note{
     font-family:var(--font-body);margin-top:1.8rem;font-size:.85rem;color:var(--muted);
   }
@@ -351,7 +414,7 @@
     <a href="#hakkimda">Ben Kimim</a>
     <a href="#surec">Tedavi Süreci</a>
     <a href="#hikayeler">Hasta Hikayeleri</a>
-    <a class="nav-cta" href="#iletisim">Ücretsiz Ön Değerlendirme</a>
+    <a class="nav-cta" href="#iletisim"><span class="full">Ücretsiz Ön Değerlendirme</span><span class="short">Randevu</span></a>
   </div>
 </nav>
 
@@ -364,7 +427,8 @@
       <div class="kicker">Evde Fizik Tedavi &amp; Rehabilitasyon</div>
       <h1>Sağlığınıza kendi <em>evinizde</em> kavuşun</h1>
       <p class="sub">Nörolojik ve geriatrik rehabilitasyonda, bilimsel temellere dayanan ve tamamen kişiye özel planlanan tedavi programları — yaşam alanınızın konforunda.</p>
-      <a class="hero-cta" href="#iletisim">Ücretsiz Ön Değerlendirme&nbsp;<small>— evinizde, yüz yüze</small></a>
+      <a class="hero-cta" href="#iletisim">Ücretsiz Ön Değerlendirme <span class="arr">→</span></a>
+      <p class="hero-cta-note">Ön değerlendirme evinizde ve ücretsizdir.</p>
     </div>
     <div class="posture-hud">duruş <b id="postureNow">000</b><span>/100</span></div>
     <div class="scroll-hint">Kaydır ↓</div>
@@ -550,11 +614,65 @@
   <h2 class="reveal">Süreç, bir <em>telefonla</em> başlar</h2>
   <p class="sub reveal">Kısa bir görüşmeyle mevcut durumu birlikte değerlendirelim, ücretsiz ön değerlendirme randevunuzu planlayalım. Ön değerlendirme evinizde, yüz yüze ve ücretsizdir.</p>
   <div class="contact-actions reveal">
-    <a class="btn btn-phone" href="tel:+905000000000">📞 05XX XXX XX XX</a>
-    <a class="btn btn-wa" href="https://wa.me/905000000000" target="_blank" rel="noopener">WhatsApp'tan Yazın</a>
+    <a class="cbtn" href="tel:+905528004434">
+      <span class="cbtn-ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span class="cbtn-tx"><small>Hemen Arayın</small><b>+90 552 800 44 34</b></span>
+    </a>
+    <a class="cbtn" href="https://wa.me/905528004434?text=Merhaba%2C%20evde%20fizik%20tedavi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">
+      <span class="cbtn-ic wa" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.85h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.88-9.87a9.82 9.82 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 6.98c0 5.45-4.43 9.88-9.87 9.88zm8.4-18.28A11.8 11.8 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.23-1.63a11.94 11.94 0 0 0 5.81 1.48h.01c6.58 0 11.94-5.36 11.94-11.94a11.87 11.87 0 0 0-3.54-8.34z"/></svg>
+      </span>
+      <span class="cbtn-tx"><small>WhatsApp</small><b>Mesaj Gönderin</b></span>
+    </a>
   </div>
   <p class="note reveal">Hafta içi ve cumartesi günleri, 09.00 – 20.00 arasında ulaşabilirsiniz.</p>
   <p class="area reveal">Hizmet bölgesi: [Şehir / ilçeler eklenecek]</p>
+
+  <div class="form-wrap reveal">
+    <div class="form-side">
+      <h3>Ya da formu doldurun,<br><em>biz sizi arayalım</em></h3>
+      <p>Bilgilerinizi bırakın, uygun olduğunuz saatte sizi arayalım. "WhatsApp ile Gönder" dediğinizde bilgileriniz hazır bir WhatsApp mesajına dönüşür — size sadece onaylayıp göndermek kalır.</p>
+      <ul class="hours">
+        <li><b>Hafta içi:</b> 09.00 – 20.00</li>
+        <li><b>Cumartesi:</b> 09.00 – 20.00</li>
+        <li><b>Pazar:</b> Kapalı</li>
+      </ul>
+    </div>
+    <form class="form-card" id="waForm" novalidate>
+      <div class="field">
+        <label for="fAd">Ad Soyad *</label>
+        <input type="text" id="fAd" name="ad" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="fTel">Telefon Numaranız *</label>
+        <input type="tel" id="fTel" name="tel" autocomplete="tel" inputmode="tel" placeholder="05__ ___ __ __" required>
+      </div>
+      <div class="field">
+        <label for="fZaman">Sizi Ne Zaman Arayalım?</label>
+        <select id="fZaman" name="zaman">
+          <option>Fark etmez</option>
+          <option>09.00 – 12.00</option>
+          <option>12.00 – 17.00</option>
+          <option>17.00 – 20.00</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fMesaj">Kısaca Durumunuz (isteğe bağlı)</label>
+        <textarea id="fMesaj" name="mesaj" placeholder="Örn: Babam 72 yaşında, inme sonrası evde fizik tedavi arıyoruz."></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="kvkkOk">
+        <span>Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine açık rıza veriyorum. <a href="#">KVKK Aydınlatma Metni</a></span>
+      </label>
+      <button class="form-submit" type="submit" disabled>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.05 21.85h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.88-9.87a9.82 9.82 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 6.98c0 5.45-4.43 9.88-9.87 9.88z"/></svg>
+        WhatsApp ile Gönder
+      </button>
+      <p class="form-hint">Bu form hiçbir veriyi sunucuda saklamaz; bilgileriniz yalnızca sizin göndereceğiniz WhatsApp mesajına eklenir.</p>
+    </form>
+  </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -563,6 +681,7 @@
     <div>
       <h4>Turgay Mersin — Fizyoterapist</h4>
       <p>Evde fizik tedavi ve rehabilitasyon. Nörolojik (inme/hemipleji), geriatrik ve ortopedik rehabilitasyonda bilimsel temelli, kişiye özel tedavi programları.</p>
+      <p style="margin-top:.6rem"><a href="tel:+905528004434">+90 552 800 44 34</a></p>
     </div>
     <div>
       <h4>Güven &amp; Yeterlilik</h4>
@@ -692,6 +811,28 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold: 0.15});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- İletişim formu -> WhatsApp köprüsü ---------- */
+  const waForm = document.getElementById('waForm');
+  if (waForm){
+    const consent = waForm.querySelector('#kvkkOk');
+    const submitBtn = waForm.querySelector('.form-submit');
+    consent.addEventListener('change', () => { submitBtn.disabled = !consent.checked; });
+    waForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const ad = waForm.querySelector('#fAd').value.trim();
+      const tel = waForm.querySelector('#fTel').value.trim();
+      const zaman = waForm.querySelector('#fZaman').value;
+      const mesaj = waForm.querySelector('#fMesaj').value.trim();
+      if (!ad || !tel){
+        alert('Lütfen Ad Soyad ve Telefon alanlarını doldurun.');
+        return;
+      }
+      let text = `Merhaba, web sitenizden yazıyorum.\n\nAd Soyad: ${ad}\nTelefon: ${tel}\nUygun arama zamanı: ${zaman}`;
+      if (mesaj) text += `\nAçıklama: ${mesaj}`;
+      window.open(`https://wa.me/905528004434?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+  }
 
   /* ---------- Hasta hikayeleri: aç/kapa ---------- */
   document.querySelectorAll('.story-toggle').forEach(btn => {

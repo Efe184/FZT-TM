@@ -80,7 +80,11 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
    İlk İletişim → Ücretsiz Ön Değerlendirme → Kişiye Özel Plan → Tedavi ve Takip →
    Periyodik Değerlendirme (10-15 seansta yeniden değerlendirme) + "Hedefimiz" kapanışı
 5. **Hasta Hikayeleri** — anonim kartlar (baş harf + yaş + tanı), alıntı formatında
-6. **İletişim / CTA** — telefon + WhatsApp (süreç telefonla başlıyor, bu birincil dönüşüm)
+6. **İletişim / CTA** — telefon + WhatsApp kart butonları (SVG ikonlu) + iletişim formu.
+   Form BACKEND'SİZ "WhatsApp köprüsü": alanlar (ad, tel, arama zamanı, açıklama) hazır
+   WhatsApp mesajına dönüşüp wa.me/905528004434'e açılır; sunucuda veri saklanmaz.
+   KVKK açık rıza kutusu önceden işaretsiz, işaretlenmeden gönder butonu pasif.
+   Aydınlatma Metni linki hâlâ placeholder (hukukçu metni bekleniyor).
 7. **Footer** — unvan, diploma no, KVKK, yasal uyarı
 
 ## Yasal kurallar (HER içerik değişikliğinde uygulanır)
@@ -94,7 +98,8 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
 
 ## Bekleyen içerik (müşteriden istenecek)
 
-- [ ] Gerçek telefon numarası + WhatsApp hattı (şu an `05XX XXX XX XX` placeholder)
+- [x] Gerçek telefon numarası + WhatsApp: **+90 552 800 44 34** (tel:, wa.me linkleri
+      ve form köprüsü bu numaraya bağlı)
 - [ ] Hizmet bölgesi/şehir (şu an placeholder)
 - [ ] Turgay Bey'in fotoğrafı (Ben Kimim bölümü; şu an placeholder blok)
 - [x] Gerçek hasta hikayeleri (2 adet eklendi: "Annem Yeniden Hayata Döndü",

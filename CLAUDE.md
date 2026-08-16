@@ -47,7 +47,15 @@ sağlık-wellness tarafında trend "soft serif + sessiz sans" ikilisi.
 
 ## Dosyalar
 
-- `index.html` — **asıl site** (tüm bölümler burada)
+> **YAYIN KÖKÜ `docs/`** — host'un publish directory ayarı `docs`. Sadece bu klasör
+> internetten erişilebilir. `CLAUDE.md` bilinçli olarak kökte tutuluyor ki siteden
+> okunamasın (iç notlar, stok fotoğraf bilgisi vb. içeriyor). Yeni bir site dosyası
+> eklerken `docs/` altına koy.
+
+- `docs/index.html` — **asıl site** (tüm bölümler burada)
+- `docs/kvkk.html` — KVKK aydınlatma metni (taslak; `noindex`)
+- `docs/robots.txt`, `docs/sitemap.xml`, `docs/favicon.*`, `docs/apple-touch-icon.png`
+- `docs/assets/`, `docs/frames-spine/` — görseller ve hero kare dizisi
 - `demo.html` / `demo-b.html` — Konsept A/B teknik demoları (arşiv; site index.html'de ilerler)
 - `frames/frame_001..104.webp` — hero kare dizisi (1600px, ~2.3 MB toplam)
 - `6111091-uhd_3840_2160_25fps.mp4` — kaynak stok video (Pexels; PLACEHOLDER —

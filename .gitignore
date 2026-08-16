@@ -1,5 +1,6 @@
-# Bu repo doğrudan siteye deploy ediliyor — buradaki her dosya internetten
-# erişilebilir olur. Yayına gitmemesi gereken her şey burada dışlanır.
+# YAYIN KÖKÜ: docs/  — host'un "publish directory" ayarı docs olmalı.
+# Yalnızca docs/ içindeki dosyalar internetten erişilebilir; kökteki
+# CLAUDE.md ve çalışma dosyaları servis EDİLMEZ.
 
 # Kaynak videolar (kareler zaten frames-spine/ içinde)
 *.mp4

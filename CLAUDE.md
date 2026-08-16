@@ -47,7 +47,15 @@ sağlık-wellness tarafında trend "soft serif + sessiz sans" ikilisi.
 
 ## Dosyalar
 
-- `index.html` — **asıl site** (tüm bölümler burada)
+> **YAYIN KÖKÜ `docs/`** — host'un publish directory ayarı `docs`. Sadece bu klasör
+> internetten erişilebilir. `CLAUDE.md` bilinçli olarak kökte tutuluyor ki siteden
+> okunamasın (iç notlar, stok fotoğraf bilgisi vb. içeriyor). Yeni bir site dosyası
+> eklerken `docs/` altına koy.
+
+- `docs/index.html` — **asıl site** (tüm bölümler burada)
+- `docs/kvkk.html` — KVKK aydınlatma metni (taslak; `noindex`)
+- `docs/robots.txt`, `docs/sitemap.xml`, `docs/favicon.*`, `docs/apple-touch-icon.png`
+- `docs/assets/`, `docs/frames-spine/` — görseller ve hero kare dizisi
 - `demo.html` / `demo-b.html` — Konsept A/B teknik demoları (arşiv; site index.html'de ilerler)
 - `frames/frame_001..104.webp` — hero kare dizisi (1600px, ~2.3 MB toplam)
 - `6111091-uhd_3840_2160_25fps.mp4` — kaynak stok video (Pexels; PLACEHOLDER —
@@ -123,7 +131,13 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
       İçindeki kırmızı `.todo` kutuları doldurulmalı: e-posta, tebligat adresi,
       sağlık kayıtları saklama süresi. Onaydan sonra `.box.warn` taslak uyarısı ve
       `meta robots noindex` kaldırılacak.
-- [ ] E-posta adresi + tebligat adresi (KVKK metni ve başvuru bölümü için zorunlu)
+- [x] E-posta: **turgay.mrsn00@gmail.com** (KVKK metninde veri sorumlusu bilgileri
+      ve başvuru bölümünde; sitenin iletişim bölümünde HENÜZ YOK — telefon/WhatsApp
+      odaklı tasarım korunuyor)
+- [x] Tebligat adresi: **İSTOÇ 21. Yol, 2438 Sokak, 19 Ada No: 71, Mahmutbey Mah.,
+      Bağcılar / İstanbul** (KVKK metninde veri sorumlusu bilgileri + m.11 başvuru
+      bölümü). NOT: yazışma adresi — hasta kabul edilen klinik DEĞİL, hizmet evde
+      veriliyor. Sitenin iletişim bölümüne ve schema `address` alanına eklenmedi.
 - [ ] Gerçek çekim hero videosu (yarım günlük çekim önerildi)
 
 ## Yol haritası

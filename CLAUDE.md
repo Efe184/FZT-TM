@@ -126,7 +126,10 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
 - [x] E-posta: **turgay.mrsn00@gmail.com** (KVKK metninde veri sorumlusu bilgileri
       ve başvuru bölümünde; sitenin iletişim bölümünde HENÜZ YOK — telefon/WhatsApp
       odaklı tasarım korunuyor)
-- [ ] Tebligat adresi (KVKK m.11 yazılı başvuru yolu için zorunlu — son eksik alan)
+- [x] Tebligat adresi: **İSTOÇ 21. Yol, 2438 Sokak, 19 Ada No: 71, Mahmutbey Mah.,
+      Bağcılar / İstanbul** (KVKK metninde veri sorumlusu bilgileri + m.11 başvuru
+      bölümü). NOT: yazışma adresi — hasta kabul edilen klinik DEĞİL, hizmet evde
+      veriliyor. Sitenin iletişim bölümüne ve schema `address` alanına eklenmedi.
 - [ ] Gerçek çekim hero videosu (yarım günlük çekim önerildi)
 
 ## Yol haritası

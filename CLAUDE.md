@@ -73,7 +73,7 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
 1. **Hero** — scrub video + "evde fizik tedavi" mesajı + Ücretsiz Ön Değerlendirme CTA
 2. **Paradigma köprüsü** — kısa scroll geçişi (tedavi felsefesi)
 3. **Ben Kimim** — Turgay Mersin'in tam metni (müşteriden geldi, DEĞİŞTİRME;
-   kariyer akışı: Pediatri → Hastane/Nöroloji+Geriatri → Evde rehab ~2-3 yıl)
+   kariyer akışı: Pediatri → Hastane/Nöroloji+Geriatri → Evde rehab ~4 yıl)
 4. **Tedavi Sürecimiz** — dikey scroll'un sürdüğü YATAY panel şeridi (sticky,
    6 panel: 5 adım + koyu "Hedefimiz" finali; dev hayalet numaralar, adım sayacı,
    ilerleme çizgisi; ≤820px ve reduced-motion'da dikey yığına düşer):
@@ -100,13 +100,30 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
 
 - [x] Gerçek telefon numarası + WhatsApp: **+90 552 800 44 34** (tel:, wa.me linkleri
       ve form köprüsü bu numaraya bağlı)
-- [ ] Hizmet bölgesi/şehir (şu an placeholder)
-- [ ] Turgay Bey'in fotoğrafı (Ben Kimim bölümü; şu an placeholder blok)
-- [x] Gerçek hasta hikayeleri (2 adet eklendi: "Annem Yeniden Hayata Döndü",
-      "Babamın Yeniden Kendine Güvenmesini Sağladı" — metinler müşteriden geldiği
-      gibi, DEĞİŞTİRME) — ⚠ yazılı hasta yakını onaylarının alındığı Turgay Bey'e teyit ettirilecek
-- [ ] Diploma no, mezun olunan üniversite, dernek üyelikleri (footer güven bölümü)
-- [ ] KVKK aydınlatma metni (hukukçu onaylı)
+- [x] Hizmet bölgesi: **İstanbul — Avrupa Yakası** + 19 ilçe (Arnavutköy, Avcılar,
+      Bağcılar, Bahçelievler, Bakırköy, Başakşehir, Bayrampaşa, Beyoğlu, Esenler,
+      Eyüpsultan, Fatih, Gaziosmanpaşa, Güngören, Kağıthane, Küçükçekmece, Sarıyer,
+      Sultangazi, Şişli, Zeytinburnu) + "Avrupa Yakası'ndaki tüm hastaneler".
+      İletişim bölümündeki `.area` bloğunda ve JSON-LD `areaServed` dizisinde.
+- [x] Turgay Bey'in fotoğrafı: `assets/turgay-mersin.jpeg` (Ben Kimim bölümü;
+      3:4 dikey, 4:5 kutuda `object-position:62% 28%` ile kadrajlanıyor)
+- [x] Gerçek hasta hikayeleri (3 adet: "Annem Yeniden Hayata Döndü" / Küçükçekmece,
+      "Babamın Yeniden Kendine Güvenmesini Sağladı" / Alibeyköy,
+      "Babaannem Yeniden Camın Önüne Gidebiliyor" / Sultangazi — 82 yaş, 20 seans,
+      kalça protezi sonrası; metinler müşteriden geldiği gibi, DEĞİŞTİRME)
+      — ⚠ yazılı hasta yakını onaylarının alındığı Turgay Bey'e teyit ettirilecek
+- [x] Diploma / mezuniyet: **Yakın Doğu Üniversitesi — Sağlık Bilimleri Fakültesi,
+      Fizyoterapi ve Rehabilitasyon (2023), Diploma No: 61391** (footer güven bölümü).
+      ⚠ Kaynak YÖK Mezun Belgesi'nde T.C. kimlik no, anne/baba adı, doğum tarihi ve
+      diploma notu da var — bunlar KİŞİSEL VERİ, siteye ASLA konmaz.
+- [ ] Dernek üyelikleri / sertifikalar — footer'da satır YORUMA ALINDI
+      (`Güven & Yeterlilik` bloğu); bilgi gelince yorum açılacak
+- [~] KVKK aydınlatma metni: `kvkk.html` TASLAK hazır (form alanlarına birebir uygun,
+      sağlık verisi = özel nitelikli veri vurgusuyla). ⚠ AVUKAT ONAYI BEKLİYOR.
+      İçindeki kırmızı `.todo` kutuları doldurulmalı: e-posta, tebligat adresi,
+      sağlık kayıtları saklama süresi. Onaydan sonra `.box.warn` taslak uyarısı ve
+      `meta robots noindex` kaldırılacak.
+- [ ] E-posta adresi + tebligat adresi (KVKK metni ve başvuru bölümü için zorunlu)
 - [ ] Gerçek çekim hero videosu (yarım günlük çekim önerildi)
 
 ## Yol haritası

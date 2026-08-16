@@ -123,7 +123,10 @@ ffmpeg -i kaynak.mp4 -vf "fps=7.5,scale=1600:-1" -c:v libwebp -q:v 78 frames/fra
       İçindeki kırmızı `.todo` kutuları doldurulmalı: e-posta, tebligat adresi,
       sağlık kayıtları saklama süresi. Onaydan sonra `.box.warn` taslak uyarısı ve
       `meta robots noindex` kaldırılacak.
-- [ ] E-posta adresi + tebligat adresi (KVKK metni ve başvuru bölümü için zorunlu)
+- [x] E-posta: **turgay.mrsn00@gmail.com** (KVKK metninde veri sorumlusu bilgileri
+      ve başvuru bölümünde; sitenin iletişim bölümünde HENÜZ YOK — telefon/WhatsApp
+      odaklı tasarım korunuyor)
+- [ ] Tebligat adresi (KVKK m.11 yazılı başvuru yolu için zorunlu — son eksik alan)
 - [ ] Gerçek çekim hero videosu (yarım günlük çekim önerildi)
 
 ## Yol haritası

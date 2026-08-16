@@ -3,8 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fzt. Turgay Mersin — Evde Fizik Tedavi ve Rehabilitasyon</title>
-<meta name="description" content="Fizyoterapist Turgay Mersin — evde fizik tedavi ve rehabilitasyon. Nörolojik (inme/hemipleji) ve geriatrik rehabilitasyonda kişiye özel, bilimsel temelli tedavi programları. Ücretsiz ön değerlendirme.">
+<title>Evde Fizik Tedavi İstanbul Avrupa Yakası — Fzt. Turgay Mersin</title>
+<meta name="description" content="İstanbul Avrupa Yakası'nda evde fizik tedavi ve rehabilitasyon. Fizyoterapist Turgay Mersin — nörolojik (inme/hemipleji) ve geriatrik rehabilitasyonda kişiye özel, bilimsel temelli tedavi programları. Ücretsiz ön değerlendirme.">
+<link rel="canonical" href="https://www.fizyoterapisturgaymersin.com.tr/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2D5A27">
+
+<!-- Open Graph — WhatsApp / Facebook link önizlemesi -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Fzt. Turgay Mersin">
+<meta property="og:url" content="https://www.fizyoterapisturgaymersin.com.tr/">
+<meta property="og:title" content="Evde Fizik Tedavi — Fzt. Turgay Mersin | İstanbul Avrupa Yakası">
+<meta property="og:description" content="Nörolojik (inme/hemipleji) ve geriatrik rehabilitasyonda evinizde, kişiye özel tedavi. Ücretsiz ön değerlendirme için hemen arayın.">
+<meta property="og:image" content="https://www.fizyoterapisturgaymersin.com.tr/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fizyoterapist Turgay Mersin">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evde Fizik Tedavi — Fzt. Turgay Mersin | İstanbul Avrupa Yakası">
+<meta name="twitter:description" content="Nörolojik ve geriatrik rehabilitasyonda evinizde, kişiye özel tedavi. Ücretsiz ön değerlendirme.">
+<meta name="twitter:image" content="https://www.fizyoterapisturgaymersin.com.tr/assets/og-cover.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "additionalType": "https://schema.org/Physiotherapy",
+  "name": "Fzt. Turgay Mersin — Evde Fizik Tedavi",
+  "description": "İstanbul Avrupa Yakası'nda evde fizik tedavi ve rehabilitasyon hizmeti. Nörolojik (inme/hemipleji) ve geriatrik rehabilitasyon.",
+  "medicalSpecialty": "PhysicalTherapy",
+  "telephone": "+90 552 800 44 34",
+  "url": "https://www.fizyoterapisturgaymersin.com.tr/",
+  "image": "https://www.fizyoterapisturgaymersin.com.tr/assets/og-cover.jpg",
+  "priceRange": "$$",
+  "address": { "@type": "PostalAddress", "addressLocality": "İstanbul", "addressRegion": "İstanbul", "addressCountry": "TR" },
+  "areaServed": [
+    { "@type": "City", "name": "İstanbul" },
+    "Arnavutköy", "Avcılar", "Bağcılar", "Bahçelievler", "Bakırköy",
+    "Başakşehir", "Bayrampaşa", "Beyoğlu", "Esenler", "Eyüpsultan",
+    "Fatih", "Gaziosmanpaşa", "Güngören", "Kağıthane", "Küçükçekmece",
+    "Sarıyer", "Sultangazi", "Şişli", "Zeytinburnu"
+  ],
+  "availableService": [
+    { "@type": "MedicalTherapy", "name": "Evde Nörolojik Rehabilitasyon (inme/hemipleji)" },
+    { "@type": "MedicalTherapy", "name": "Evde Geriatrik Rehabilitasyon" },
+    { "@type": "MedicalTherapy", "name": "Ortopedik Rehabilitasyon (kalça protezi sonrası)" }
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00", "closes": "20:00"
+  }]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -157,10 +216,13 @@
   .about-side{position:sticky;top:7rem}
   @media (max-width:900px){ .about-side{position:static} }
   .portrait{
-    aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg,#e9e5da,#dcd6c6);
-    display:flex;align-items:center;justify-content:center;color:var(--muted);
-    font-family:var(--font-body);font-size:.85rem;letter-spacing:.15em;
-    text-transform:uppercase;border:1px solid var(--line);margin-bottom:1.6rem;
+    position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+    background:linear-gradient(160deg,#e9e5da,#dcd6c6);
+    border:1px solid var(--line);margin-bottom:1.6rem;
+  }
+  .portrait img{
+    width:100%;height:100%;display:block;
+    object-fit:cover;object-position:62% 28%;
   }
   .milestones{display:flex;flex-direction:column;gap:.9rem;font-family:var(--font-body)}
   .milestone{display:flex;gap:.9rem;align-items:flex-start}
@@ -208,7 +270,7 @@
     transition:box-shadow .4s;
   }
   .panel .photo{
-    position:relative;height:clamp(150px,24vh,220px);border-radius:18px;
+    position:relative;aspect-ratio:16/9;max-height:34vh;border-radius:18px;
     overflow:hidden;margin-bottom:1.5rem;flex:none;
   }
   .panel .photo img{width:100%;height:100%;object-fit:cover;display:block}
@@ -276,6 +338,8 @@
     padding:.35rem .85rem;border-radius:999px;
   }
   .chip.alt{color:var(--purple);background:rgba(128,90,213,.07);border-color:rgba(128,90,213,.22)}
+  .chip.loc{display:inline-flex;align-items:center;gap:.35rem}
+  .chip.loc svg{width:.85em;height:.85em;flex:none}
   .story h3{font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:600;line-height:1.25}
   .story .lead-quote{
     font-style:italic;color:#374151;font-size:1.06rem;line-height:1.8;
@@ -371,7 +435,14 @@
     font-family:var(--font-body);margin-top:1.8rem;font-size:.85rem;color:var(--muted);
   }
   .contact .area{
-    font-family:var(--font-body);margin-top:.4rem;font-size:.85rem;color:var(--muted);
+    font-family:var(--font-body);margin-top:.9rem;max-width:52rem;
+    margin-left:auto;margin-right:auto;
+  }
+  .contact .area b{
+    display:block;font-size:.95rem;font-weight:600;color:var(--charcoal);
+  }
+  .contact .area p{
+    margin:.35rem 0 0;font-size:.85rem;line-height:1.65;color:var(--muted);
   }
 
   /* ---------- FOOTER ---------- */
@@ -450,11 +521,13 @@
 <section class="block" id="hakkimda">
   <div class="about-grid">
     <div class="about-side reveal">
-      <div class="portrait">Fotoğraf gelecek</div>
+      <div class="portrait reveal">
+        <img src="assets/turgay-mersin.jpeg" alt="Fizyoterapist Turgay Mersin, kliniğindeki çalışma masasında" loading="lazy">
+      </div>
       <div class="milestones">
         <div class="milestone"><div class="dot"></div><div><b>Pediatrik Rehabilitasyon</b><span>Rehabilitasyon merkezleri — kariyer başlangıcı</span></div></div>
         <div class="milestone"><div class="dot"></div><div><b>Hastane Dönemi</b><span>Nörolojik (hemipleji) &amp; geriatrik rehabilitasyon</span></div></div>
-        <div class="milestone"><div class="dot"></div><div><b>Evde Fizik Tedavi</b><span>2-3 yıldır, yüzlerce danışanla</span></div></div>
+        <div class="milestone"><div class="dot"></div><div><b>Evde Fizik Tedavi</b><span>4 yıldır, yüzlerce danışanla</span></div></div>
       </div>
     </div>
     <div class="about-text">
@@ -462,7 +535,7 @@
       <h2 class="title reveal">Turgay Mersin<br><em>Fizyoterapist</em></h2>
       <p class="reveal">Fizyoterapist Turgay Mersin olarak mesleki kariyerime pediatrik alanda rehabilitasyon merkezlerinde başladım. Bu süreçte çocukların gelişimsel ihtiyaçlarına yönelik değerlendirme ve tedavi programları planlayarak, ailelerle iş birliği içinde bireysel rehabilitasyon süreçlerini yürüttüm.</p>
       <p class="reveal">Daha sonra hastane ortamında görev alarak ağırlıklı olarak hemipleji (inme/felç) tanılı nörolojik hastaların rehabilitasyonunda çalıştım. Bunun yanı sıra geriatrik hastaların hareket kabiliyetini artırmaya, günlük yaşam aktivitelerinde bağımsızlıklarını desteklemeye ve yaşam kalitelerini yükseltmeye yönelik kapsamlı rehabilitasyon uygulamaları gerçekleştirdim.</p>
-      <p class="reveal">Hastane deneyimimin ardından kariyerime evde fizik tedavi ve rehabilitasyon hizmetleri sunarak devam ettim. Yaklaşık 2-3 yıldır danışanlarıma kendi yaşam alanlarında, bilimsel temellere dayanan ve tamamen kişiye özel planlanan tedavi programları uyguluyorum. Bu süreçte yüzlerce danışanın rehabilitasyon yolculuğuna eşlik ederek; ağrının azaltılması, hareket kabiliyetinin geliştirilmesi, fonksiyonel bağımsızlığın artırılması ve yaşam kalitesinin yükseltilmesi konusunda başarılı sonuçlar elde ettim.</p>
+      <p class="reveal">Hastane deneyimimin ardından kariyerime evde fizik tedavi ve rehabilitasyon hizmetleri sunarak devam ettim. Yaklaşık 4 yıldır danışanlarıma kendi yaşam alanlarında, bilimsel temellere dayanan ve tamamen kişiye özel planlanan tedavi programları uyguluyorum. Bu süreçte yüzlerce danışanın rehabilitasyon yolculuğuna eşlik ederek; ağrının azaltılması, hareket kabiliyetinin geliştirilmesi, fonksiyonel bağımsızlığın artırılması ve yaşam kalitesinin yükseltilmesi konusunda başarılı sonuçlar elde ettim.</p>
       <p class="reveal">Her danışanımın ihtiyaçlarının farklı olduğuna inanıyor, bu doğrultuda değerlendirme ve tedavi sürecini tamamen bireye özel planlıyorum. Güncel fizyoterapi yaklaşımlarını yakından takip ederek etik ilkeler doğrultusunda güvenilir, profesyonel ve sonuç odaklı bir hizmet sunmayı amaçlıyorum.</p>
       <p class="signature reveal">Benim için fizik tedavi yalnızca mevcut şikâyetleri gidermekten ibaret değildir. En büyük hedefim; danışanlarımın yaşam kalitesini artırmak, günlük yaşamlarına daha güçlü ve bağımsız şekilde devam etmelerini sağlamak ve onlara sağlıklı bir geleceğe güvenle adım atmalarında rehberlik etmektir.</p>
     </div>
@@ -482,7 +555,7 @@
 
     <div class="hproc-strip" id="hprocStrip">
       <article class="panel">
-        <div class="photo"><img src="assets/step1.jpg" alt="Telefonla görüşen gülümseyen hasta yakını" loading="lazy" style="object-position:50% 22%"><span class="pnum">01</span></div>
+        <div class="photo"><img src="assets/step1.jpeg" alt="Telefonla görüşen gülümseyen hasta yakını" loading="lazy"><span class="pnum">01</span></div>
         <div class="step-line"></div>
         <div class="tag">Telefon Görüşmesi</div>
         <h3>İlk İletişim</h3>
@@ -490,7 +563,7 @@
       </article>
 
       <article class="panel">
-        <div class="photo"><img src="assets/step2.jpg" alt="Evde kol ve eklem hareket açıklığı değerlendirmesi yapılan yaşlı danışan" loading="lazy"><span class="pnum">02</span></div>
+        <div class="photo"><img src="assets/step2.jpeg" alt="Evde kol ve eklem hareket açıklığı değerlendirmesi yapılan yaşlı danışan" loading="lazy"><span class="pnum">02</span></div>
         <div class="step-line"></div>
         <div class="tag">Evinizde, Yüz Yüze</div>
         <h3>Ücretsiz Ön Değerlendirme</h3>
@@ -498,7 +571,7 @@
       </article>
 
       <article class="panel">
-        <div class="photo"><img src="assets/step3.jpg" alt="Değerlendirme notlarını panoya yazan terapist" loading="lazy"><span class="pnum">03</span></div>
+        <div class="photo"><img src="assets/step3.jpeg" alt="Değerlendirme notlarını panoya yazan terapist" loading="lazy"><span class="pnum">03</span></div>
         <div class="step-line"></div>
         <div class="tag">Bireye Özel Program</div>
         <h3>Kişiye Özel Tedavi Planı</h3>
@@ -506,7 +579,7 @@
       </article>
 
       <article class="panel">
-        <div class="photo"><img src="assets/step4.jpg" alt="Fizyoterapist eşliğinde denge ve kuvvet egzersizi yapan danışan" loading="lazy"><span class="pnum">04</span></div>
+        <div class="photo"><img src="assets/step4.jpeg" alt="Fizyoterapist eşliğinde denge ve kuvvet egzersizi yapan danışan" loading="lazy"><span class="pnum">04</span></div>
         <div class="step-line"></div>
         <div class="tag">Seans + Ev Programı</div>
         <h3>Tedavi ve Düzenli Takip</h3>
@@ -514,7 +587,7 @@
       </article>
 
       <article class="panel">
-        <div class="photo"><img src="assets/step5.jpg" alt="Seans sırasında gelişim notları alan terapist" loading="lazy"><span class="pnum">05</span></div>
+        <div class="photo"><img src="assets/step5.jpeg" alt="Seans sırasında gelişim notları alan terapist" loading="lazy"><span class="pnum">05</span></div>
         <div class="step-line"></div>
         <div class="tag">10-15 Seansta Bir</div>
         <h3>Periyodik Değerlendirme</h3>
@@ -543,7 +616,10 @@
       <!-- Hikaye 1 -->
       <article class="story reveal">
         <div class="meta">
+          <span class="chip loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Küçükçekmece</span>
           <span class="chip">Hasta Yakını</span>
+          <span class="chip alt">Hasta Yaşı: 80</span>
+          <span class="chip alt">20 Seans</span>
           <span class="chip alt">Geriatrik &amp; Nörolojik Rehabilitasyon</span>
           <span class="chip alt">Evde Fizik Tedavi</span>
         </div>
@@ -571,6 +647,7 @@
       <!-- Hikaye 2 -->
       <article class="story reveal">
         <div class="meta">
+          <span class="chip loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Alibeyköy</span>
           <span class="chip">Hasta Yakını</span>
           <span class="chip alt">Hasta Yaşı: 70</span>
           <span class="chip alt">24 Seans</span>
@@ -602,6 +679,44 @@
         <button class="story-toggle" type="button" aria-expanded="false">Hikayenin devamını oku <span class="arrow">↓</span></button>
       </article>
 
+      <!-- Hikaye 3 -->
+      <article class="story reveal">
+        <div class="meta">
+          <span class="chip loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Sultangazi</span>
+          <span class="chip">Hasta Yakını</span>
+          <span class="chip alt">Hasta Yaşı: 82</span>
+          <span class="chip alt">20 Seans</span>
+          <span class="chip alt">Kalça Protezi Sonrası Rehabilitasyon</span>
+          <span class="chip alt">Evde Fizik Tedavi</span>
+        </div>
+        <h3>Babaannem Yeniden Camın Önüne Gidebiliyor</h3>
+        <p class="lead-quote">"Eskiden gününün büyük bölümünü yatakta geçirirken artık camın önüne gidip dışarıyı izleyebiliyor, güzel havalarda balkonda oturabiliyor."</p>
+        <div class="story-full">
+          <div class="inner">
+            <h4>Tedaviye başlamadan önce yaşadığınız en büyük sorun neydi?</h4>
+            <p>Babaannem 82 yaşında. Kalça kırığı nedeniyle protez ameliyatı oldu. Ameliyat sonrasında yürümekte çok zorlanıyordu, ayağa kalkmaya çekiniyor ve günlük ihtiyaçlarını tek başına karşılayamıyordu.</p>
+            <p>Uzun süre yatağa bağımlı kaldığı dönemlerde yatak yaraları oluşmaya başlamıştı. Oturarak geçirdiği zamanlarda ise bacaklarında ve ayaklarında belirgin ödem meydana geliyordu. Sürekli aynı pozisyonda kalması hem dolaşımını olumsuz etkiliyor hem de hareket kabiliyetini her geçen gün daha da azaltıyordu.</p>
+            <p>Bunun yanında uzun süre yattıktan sonra oturur pozisyona geldiğinde veya ayağa kaldırmaya çalıştığımızda tansiyon düşmesi, baş dönmesi ve göz kararması yaşıyordu. Bu yüzden hareket ettirmekten çekiniyor, yanlış bir şey yapmaktan korkuyorduk. Hem babaannem hem de ailemiz için oldukça zor ve umutsuz bir süreçti.</p>
+            <h4>Tedavi süreciniz nasıl geçti? Turgay Hoca'nın yaklaşımı ve ilgisi hakkında neler söyleyebilirsiniz?</h4>
+            <p>Tedavi sürecimiz Turgay Hoca ile hâlâ devam ediyor. İlk günden itibaren bize güven veren, sabırlı ve profesyonel bir yaklaşımı oldu. Her seansta babaannemin durumunu dikkatle değerlendirdi ve o günkü performansına uygun bir tedavi planı uyguladı.</p>
+            <p>En büyük sorunlarımızdan biri pozisyon değişikliklerinde yaşanan tansiyon düşmesi ve göz kararmasıydı. Turgay Hoca bu süreci aceleye getirmeden yönetti. Önce kontrollü şekilde oturmasını sağladı, bir süre bekleyerek tansiyonunun dengelenmesini takip etti. Daha sonra kısa süreli ayağa kaldırıp tekrar dinlendirdi. Bu geçişleri sabırla ve kontrollü şekilde tekrarlayarak vücudunun yeni duruma uyum sağlamasına yardımcı oldu.</p>
+            <p>Bugün geldiğimiz noktada tansiyon düşmesi ve göz kararması şikâyetleri büyük ölçüde kontrol altına alındı. Ayağa kalkarken artık çok daha güvenli hissediyor.</p>
+            <p>Sadece egzersiz yaptırmakla kalmadı; yürüme eğitimi, denge çalışmaları, kas güçlendirme, ödem kontrolüne yönelik uygulamalar ve günlük yaşam aktivitelerini destekleyen tedavilerle süreci bütüncül olarak yönetti. Her aşamada bizi detaylı şekilde bilgilendirdi, sorularımızı sabırla yanıtladı ve moral verdi. Hastasına gerçekten değer veren, gelişimini yakından takip eden ve aileyi de tedavi sürecinin bir parçası haline getiren bir fizyoterapist olduğunu her seansta hissettik.</p>
+            <h4>Tedavi sonrasında yaşamınızda ne gibi değişiklikler oldu?</h4>
+            <p>Tedavi sürecimiz hâlâ devam ediyor olmasına rağmen bugüne kadar elde ettiğimiz gelişmeler bizi çok mutlu ediyor.</p>
+            <p>Babaannem artık walker (yürüteç) desteğiyle yürüyebiliyor. Ayağa kalkarken hâlâ yardıma ihtiyaç duyuyor ancak eskisine göre çok daha güvenli hareket ediyor ve ev içerisinde kısa mesafelerde yürüyebiliyor.</p>
+            <p>Eskiden gününün büyük bölümünü yatakta geçirirken artık camın önüne gidip dışarıyı izleyebiliyor, güzel havalarda balkonda oturabiliyor. Bu bile onun yaşam kalitesini ve moralini önemli ölçüde artırdı.</p>
+            <p>Fiziksel gelişimin yanında psikolojik olarak da çok değişti. Kendine olan güveni arttı, hareket etmekten eskisi kadar korkmuyor ve her geçen gün biraz daha ilerlediğini görmek bize büyük umut veriyor. Tedavi sürecimiz devam ediyor ve çok daha iyi sonuçlar alacağımıza inanıyoruz.</p>
+            <h4>Benzer bir sorun yaşayan kişilere Turgay Hoca'yı tavsiye eder misiniz? Neden?</h4>
+            <p>Kesinlikle tavsiye ederiz.</p>
+            <p>Turgay Hoca işini büyük bir özveriyle yapan, hastasına gerçekten değer veren ve tedavi sürecini yakından takip eden bir fizyoterapist. Sadece uyguladığı tedavilerle değil, bize verdiği güven ve her aşamada yaptığı açıklamalarla da bu zorlu süreci daha rahat geçirmemizi sağladı.</p>
+            <p>Babaannemin bugün walker ile yürüyebilmesi, ayağa daha güvenli kalkabilmesi, yeniden camın önüne gidip dışarıyı izleyebilmesi ve balkonda vakit geçirebilmesi bizim için çok büyük mutluluk. Bu gelişmelerde Turgay Hoca'nın emeğinin çok büyük olduğunu düşünüyoruz.</p>
+            <p>Tedavi sürecimiz hâlâ devam ediyor ve ilerleyen dönemde çok daha iyi sonuçlar alacağımıza inanıyoruz. Benzer bir sorun yaşayan herkese gönül rahatlığıyla Turgay Hoca'dan destek almalarını tavsiye ederiz. Hastasına sadece tedavi uygulayan değil, aynı zamanda umut veren ve süreci en ince ayrıntısına kadar takip eden bir fizyoterapist.</p>
+          </div>
+        </div>
+        <button class="story-toggle" type="button" aria-expanded="false">Hikayenin devamını oku <span class="arrow">↓</span></button>
+      </article>
+
     </div>
 
     <p class="disclaimer reveal">Hikayeler, danışanlarımızın yazılı izniyle ve kimlik bilgileri gizlenerek paylaşılmaktadır. Her tedavi süreci kişiye özeldir; sonuçlar bireysel olarak farklılık gösterebilir. Bu içerik genel bilgilendirme amaçlıdır; teşhis ve tedavi için hekiminize danışınız.</p>
@@ -628,7 +743,13 @@
     </a>
   </div>
   <p class="note reveal">Hafta içi ve cumartesi günleri, 09.00 – 20.00 arasında ulaşabilirsiniz.</p>
-  <p class="area reveal">Hizmet bölgesi: [Şehir / ilçeler eklenecek]</p>
+  <div class="area reveal">
+    <b>Hizmet bölgesi: İstanbul — Avrupa Yakası</b>
+    <p>Arnavutköy, Avcılar, Bağcılar, Bahçelievler, Bakırköy, Başakşehir, Bayrampaşa,
+      Beyoğlu, Esenler, Eyüpsultan, Fatih, Gaziosmanpaşa, Güngören, Kağıthane,
+      Küçükçekmece, Sarıyer, Sultangazi, Şişli, Zeytinburnu ve İstanbul Avrupa
+      Yakası'ndaki tüm hastaneler.</p>
+  </div>
 
   <div class="form-wrap reveal">
     <div class="form-side">
@@ -664,7 +785,7 @@
       </div>
       <label class="consent">
         <input type="checkbox" id="kvkkOk">
-        <span>Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine açık rıza veriyorum. <a href="#">KVKK Aydınlatma Metni</a></span>
+        <span>Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine açık rıza veriyorum. <a href="kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></span>
       </label>
       <button class="form-submit" type="submit" disabled>
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.05 21.85h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.88-9.87a9.82 9.82 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 6.98c0 5.45-4.43 9.88-9.87 9.88z"/></svg>
@@ -686,16 +807,17 @@
     <div>
       <h4>Güven &amp; Yeterlilik</h4>
       <ul>
-        <li>[Üniversite — Fizyoterapi ve Rehabilitasyon]</li>
-        <li>[Diploma No: eklenecek]</li>
-        <li>[Dernek üyelikleri / sertifikalar]</li>
+        <li>Yakın Doğu Üniversitesi — Sağlık Bilimleri Fakültesi,<br>Fizyoterapi ve Rehabilitasyon (2023)</li>
+        <li>Diploma No: 61391</li>
+        <!-- Dernek üyelikleri / sertifikalar geldiğinde bu satır açılacak:
+        <li>Türkiye Fizyoterapistler Derneği üyesi</li> -->
       </ul>
     </div>
     <div>
       <h4>Yasal</h4>
       <ul>
-        <li><a href="#">KVKK Aydınlatma Metni</a></li>
-        <li><a href="#">Çerez Politikası</a></li>
+        <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+        <li><a href="kvkk.html#cerez">Çerez Kullanımı</a></li>
       </ul>
     </div>
   </div>

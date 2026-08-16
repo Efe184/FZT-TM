@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fizyoterapisturgaymersin.com.tr/sitemap.xml
